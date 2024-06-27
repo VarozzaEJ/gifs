@@ -6,38 +6,49 @@ import { setHTML } from "../utils/Writer.js";
 
 export class GifsController {
   constructor() {
-    AppState.on('user', this.getGifs)
-    AppState.on('gifts', this.drawGifs)
+    AppState.on("user", this.getGifs);
+    AppState.on("gifts", this.drawGifs);
   }
   async getGifs() {
     try {
-      await gifService.getGifs()
+      await gifService.getGifs();
     } catch (error) {
-      Pop.error(error)
+      Pop.error(error);
     }
   }
   drawGifs() {
-    const gifs = AppState.gifts
-    let innerHTML = ''
-    gifs.forEach(gif => innerHTML += gif.cardModel)
-    setHTML('cards', innerHTML)
+    const gifs = AppState.gifts;
+    let innerHTML = "";
+    gifs.forEach((gif) => (innerHTML += gif.cardModel));
+    setHTML("cards", innerHTML);
   }
   async openGifts(tag) {
     try {
-      await gifService.openGifts(tag)
+      await gifService.openGifts(tag);
     } catch (error) {
-      Pop.error(error)
+      Pop.error(error);
     }
   }
   async makeGift() {
-
     try {
-      event.preventDefault()
-      const form = event.target
-      let makingGift = getFormData(form)
-      await gifService.makeGift(makingGift)
+      event.preventDefault();
+      const form = event.target;
+      let makingGift = getFormData(form);
+      await gifService.makeGift(makingGift);
     } catch (error) {
-      Pop.error(error)
+      Pop.error(error);
+    }
+  }
+
+  async destroyGift(giftId) {
+    try {
+      const wantsToDelete = await Pop.confirm(
+        "Are you sure you want to delete your gift?"
+      );
+      if (!wantsToDelete) return;
+      await gifService.destroyGift(giftId);
+    } catch (error) {
+      Pop.error(error);
     }
   }
 }

@@ -3,38 +3,23 @@
     <div class="col-4 bg-dark text-light">
       <form onsubmit="app.GifsController.makeGift()">
         <label for="tag">Label</label>
-        <input type="text" name="tag" placeholder="HELP" class="w-100 mb-3 me-3">
-        <input type="url" name="url" placeholder="HELP" class="w-100 mb-3">
+        <input
+          type="text"
+          name="tag"
+          placeholder="HELP"
+          class="w-100 mb-3 me-3"
+        />
+        <input type="url" name="url" placeholder="HELP" class="w-100 mb-3" />
         <div class="text-end">
-          <button class="btn btn-outline-info ">Submit</button>
+          <button class="btn btn-outline-info">Submit</button>
         </div>
       </form>
       <form>
-        <input type="search" name="search" class="w-100 mb-3">
+        <input type="search" name="search" class="w-100 mb-3" />
       </form>
     </div>
     <div class="col-8">
-      <div class="row text-center" id="cards">
-        <div class="card col-4 ">
-          <img class="card-img-top" src="holder.js/100x180/" alt="Title" />
-          <div class="card-body">
-            <p class="card-text">Text</p>
-          </div>
-        </div>
-        <div class="card col-4">
-          <img class="card-img-top" src="holder.js/100x180/" alt="Title" />
-          <div class="card-body">
-            <p class="card-text">Text</p>
-          </div>
-        </div>
-        <div class="card col-4">
-          <img class="card-img-top" src="holder.js/100x180/" alt="Title" />
-          <div class="card-body">
-            <p class="card-text">Text</p>
-          </div>
-        </div>
-
-      </div>
+      <div class="row text-center" id="cards"></div>
     </div>
   </div>
 </section>
